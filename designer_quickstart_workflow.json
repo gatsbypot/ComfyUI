@@ -1,0 +1,76 @@
+{
+  "3": {
+    "inputs": {
+      "batch_size": 64,
+      "width": 128,
+      "height": 128
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "v1-5-pruned-emaonly.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint (Select your model!)"
+    }
+  },
+  "5": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "6": {
+    "inputs": {
+      "target_frame_count": 64,
+      "images": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "BatchFrameSampler",
+    "_meta": {
+      "title": "Batch Frame Sampler (SpriteSheetTools)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "columns": 8,
+      "images": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "SpriteSheetGenerator",
+    "_meta": {
+      "title": "Sprite Sheet Generator (SpriteSheetTools)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  }
+}
