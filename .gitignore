@@ -8,6 +8,7 @@ __pycache__/
 /custom_nodes/
 !custom_nodes/ComfyUI-SpriteSheetTools/
 !custom_nodes/example_node.py.example
+/Workflows/
 extra_model_paths.yaml
 /.vs
 .vscode/
